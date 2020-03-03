@@ -18,7 +18,7 @@ server.use("/api/users", restricted, checkRole("user"), usersRouter);
 server.get("/", (req, res) => {
   res.send("It's alive!");
 });
-
+    
 module.exports = server;
 
 function checkRole(role) {
