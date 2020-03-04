@@ -51,4 +51,4 @@ example data input post:
 }
 ```
 
-#note their are many restrictions on the data types and the maximum values for many users. Please see the DS team slack post for details on these restrictions.#
+note their are many restrictions on the data types and the maximum values for many users. Please see the DS team slack post for details on these restrictions.
