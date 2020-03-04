@@ -42,6 +42,7 @@ exports.up = function(knex) {
       
       data.boolean('instant_bookable').notNullable()
       data.boolean('is_business_travel_ready').notNullable()
+      data.float('price_estimate').notNullable().default(0)
     });
   };
   

@@ -12,7 +12,7 @@ List of API detail. Note: Some of the routes are in progress!!!!
 | POST     | /auth/register      |  creates a new user for the database  |
 | POST | /auth/login      |   Signs up the new user and returns a token |
 | GET | /data/all | grabs all of the data, this is used for testing and would not be in a final product. |
-|POST | /data/input | this is a massive post with many key value pairs. Be sure that no typos exist.
+|POST | /data/input/:id | this is a massive post with many key value pairs. Be sure that no typos exist.
 
 
 example data input post: 

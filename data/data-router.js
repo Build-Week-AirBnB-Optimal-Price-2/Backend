@@ -11,6 +11,8 @@ router.get('/all', (req, res) => {
     .catch(err => res.send(err))
 })
 
+//get data off of user_id
+
 router.post("/input/:id", (req, res) => {
     const inputData = req.body;
     const {id} = req.params;
@@ -29,6 +31,43 @@ router.post("/input/:id", (req, res) => {
     .catch(err =>{
         res.status(500).json({message: 'Failed to add a new listing'})
     })
+  });
+
+
+  router.put('/input/:id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
+  
+    Schemes.findById(id)
+    .then(scheme => {
+      if (scheme) {
+        Schemes.update(changes, id)
+        .then(updatedScheme => {
+          res.json(updatedScheme);
+        });
+      } else {
+        res.status(404).json({ message: 'Could not find scheme with given id' });
+      }
+    })
+    .catch (err => {
+      res.status(500).json({ message: 'Failed to update scheme' });
+    });
+  });
+
+  router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+  
+    Schemes.remove(id)
+    .then(deleted => {
+      if (deleted) {
+        res.json({ removed: deleted });
+      } else {
+        res.status(404).json({ message: 'Could not find scheme with given id' });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Failed to delete scheme' });
+    });
   });
 
 module.exports = router;
