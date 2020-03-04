@@ -16,6 +16,8 @@ List of API detail. Note: Some of the routes are in progress!!!!
 
 
 example data input post: 
+
+```javascript
 {
 	"name": "test1",
 	"host_is_superhost": "false",
@@ -47,4 +49,6 @@ example data input post:
 	"instant_bookable": "true",
 	"is_business_travel_ready": "true"
 }
-note their are many restrictions on the data types and the maximum values for many users. Please see the DS team slack post for details on these restrictions.
+```
+
+#note their are many restrictions on the data types and the maximum values for many users. Please see the DS team slack post for details on these restrictions.#
