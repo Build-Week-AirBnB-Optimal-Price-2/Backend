@@ -11,6 +11,15 @@ router.get('/all', (req, res) => {
     .catch(err => res.send(err))
 })
 
+router.get('/output/:id', (req, res) => {
+    const {id} = req.params;
+    DataTable.findDataByUserId(id)
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => res.send(err))
+})
+
 //get data off of user_id
 
 router.post("/input/:id", (req, res) => {
@@ -34,7 +43,7 @@ router.post("/input/:id", (req, res) => {
   });
 
 
-  router.put('/input/:id', (req, res) => {
+  router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
   
