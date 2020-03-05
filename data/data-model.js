@@ -41,8 +41,8 @@ function remove(id) {
     .del();
 }
 
-function findDataByUserId(users_id){
+function findDataByUserId(id){
+  const newId = id
   return db('data').select('*')
-  .where({users_id})
-  .first();
+  .where({users_id: newId})
 }
