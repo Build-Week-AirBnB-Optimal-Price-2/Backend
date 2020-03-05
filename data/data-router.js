@@ -47,26 +47,26 @@ router.post("/input/:id", (req, res) => {
     const { id } = req.params;
     const changes = req.body;
   
-    Schemes.findById(id)
-    .then(scheme => {
-      if (scheme) {
-        Schemes.update(changes, id)
-        .then(updatedScheme => {
-          res.json(updatedScheme);
+    DataTable.findById(id)
+    .then(data => {
+      if (data) {
+        DataTable.update(changes, id)
+        .then(updatedData => {
+          res.json(updatedData);
         });
       } else {
-        res.status(404).json({ message: 'Could not find scheme with given id' });
+        res.status(404).json({ message: 'Could not find data with given id' });
       }
     })
     .catch (err => {
-      res.status(500).json({ message: 'Failed to update scheme' });
+      res.status(500).json({ message: 'Failed to update data' });
     });
   });
 
   router.delete('/:id', (req, res) => {
     const { id } = req.params;
   
-    Schemes.remove(id)
+    DataTable.remove(id)
     .then(deleted => {
       if (deleted) {
         res.json({ removed: deleted });
