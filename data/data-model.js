@@ -42,7 +42,7 @@ function remove(id) {
 }
 
 function findDataByUserId(users_id){
-  return db('data')
+  return db('data').select('*')
   .where({users_id})
   .first();
 }
