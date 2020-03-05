@@ -50,7 +50,7 @@ router.post("/input/:id", (req, res) => {
     DataTable.findById(id)
     .then(data => {
       if (data) {
-        DataTable.update(changes, id)
+        DataTable.update(id,changes)
         .then(updatedData => {
           res.json(updatedData);
         });
