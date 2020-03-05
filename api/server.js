@@ -11,7 +11,10 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-server.use(cors());
+
+server.use(cors({
+  credentials: true,
+}));
 
 server.use("/auth", authRouter);
 server.use("/api/users", restricted, checkRole("user"), usersRouter);
