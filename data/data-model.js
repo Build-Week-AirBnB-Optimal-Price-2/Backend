@@ -29,7 +29,7 @@ function findById(id) {
     .first();
 }
 
-function update(id, changes) {
+async function update(id, changes) {
   return db("data")
     .where({ id })
     .update(changes);
