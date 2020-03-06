@@ -18,7 +18,7 @@ server.use(cors({
 
 server.use("/auth", authRouter);
 server.use("/api/users", restricted, checkRole("user"), usersRouter);
-server.use("/data", dataRouter)
+server.use("/data", restricted, checkRole("user"), dataRouter)
 
 server.get("/", (req, res) => {
   res.send("It's alive!");
